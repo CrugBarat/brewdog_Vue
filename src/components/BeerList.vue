@@ -87,12 +87,13 @@ input:focus {
 
 .grid-list-container {
   /* border-style: solid; */
+  margin-left: 40px;
+  margin-right: 20px;
 }
 
 .grid-container {
   /* border-style: solid; */
-  margin-left: 40px;
-  margin-right: 20px;
+
 }
 
 .grid {

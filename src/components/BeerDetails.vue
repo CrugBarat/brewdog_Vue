@@ -1,10 +1,12 @@
 <template lang="html">
-  <div class="">
-    <img :src="beer.image_url">
-    <p>{{beer.name}}</p>
-    <p>{{beer.description}}</p>
-    <p>{{beer.abv}}</p>
-    <beer-ingredients :beer="beer"></beer-ingredients>
+  <div class="details-container">
+    <div class="details">
+      <img :src="beer.image_url">
+      <p class="name">{{beer.name}}</p>
+      <p class="abv">ABV {{beer.abv}}%</p>
+      <p class="description">{{beer.description}}</p>
+      <beer-ingredients :beer="beer"></beer-ingredients>
+    </div>
   </div>
 </template>
 
@@ -23,8 +25,41 @@ export default {
 
 <style lang="css" scoped>
 
-img {
-  height: 100px;
+.details-container {
+  width: 100vw;
+  display: block;
+  text-align: center;
 }
+
+.details {
+  width: 800px;
+  display: inline-block;
+}
+
+img {
+  height: 150px;
+}
+
+P {
+  margin: 0;
+  padding: 0;
+}
+
+.name {
+  font-family: 'Veneer';
+  font-size: 50px;
+}
+
+.abv {
+  font-family: 'Veneer';
+  font-size: 30px;
+}
+
+.description {
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+
+
 
 </style>
