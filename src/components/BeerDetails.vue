@@ -5,17 +5,15 @@
       <p class="name">{{beer.name}}</p>
       <p class="abv">ABV {{beer.abv}}%</p>
       <p class="description">{{beer.description}}</p>
-      <input class="ingredients" type="image" :src="ingredients" v-on:click="removeFav">
+      <input class="ingredients" type="image" :src="ingredients" v-on:click="handleClick">
       <input class="add" type="image" :src="add" v-on:click="addtoFavs">
-      <input class="remove" type="image" :src="remove" v-on:click="removeFav">
-      <beer-ingredients :beer="beer"></beer-ingredients>
+      <input class="remove" type="image" :src="remove" v-on:click="handleClick">
     </div>
   </div>
 </template>
 
 <script>
 
-import BeerIngredients from './BeerIngredients.vue';
 import {eventBus} from '../main.js';
 import add from '../assets/add.png';
 import remove from '../assets/remove.png';
@@ -32,18 +30,18 @@ export default {
       ingredients: ingredients,
     }
   },
-  components: {
-    "beer-ingredients": BeerIngredients
-  },
   methods: {
     addtoFavs() {
       eventBus.$emit('add-to-favs', this.beer)
     },
     removeFav() {
       eventBus.$emit('remove-from-favs', this.beer)
+    },
+    handleClick() {
+      eventBus.$emit('beer-ingredients', this.beer.ingredients)
     }
-  },
-}
+    },
+  }
 </script>
 
 <style lang="css" scoped>

@@ -3,6 +3,7 @@
     <h1> BrewD<img class="logo" src="./assets/logo.png">g</h1>
     <beer-list :beers="beers" v-model="selectedBeer"></beer-list>
     <beer-details v-if="selectedBeer" :beer="selectedBeer"></beer-details>
+    <beer-ingredients v-if="beerIngredients" :beerIngredients="beerIngredients"></beer-ingredients>
     <fav-beers :favBeers="favBeers"></fav-beers>
   </div>
 </template>
@@ -12,6 +13,7 @@
 
 import BeerList from './components/BeerList.vue';
 import BeerDetails from './components/BeerDetails.vue';
+import BeerIngredients from './components/BeerIngredients.vue';
 import FavBeers from './components/FavBeers.vue';
 
 import {eventBus} from './main.js'
@@ -22,12 +24,14 @@ export default {
     return {
       beers: [],
       selectedBeer: null,
+      beerIngredients: null,
       favBeers: []
     }
   },
   components: {
     "beer-list": BeerList,
     "beer-details": BeerDetails,
+    "beer-ingredients": BeerIngredients,
     "fav-beers": FavBeers
   },
   methods: {
@@ -56,6 +60,11 @@ export default {
     eventBus.$on('selected-beer', (beer) => {
       this.selectedBeer = beer;
       this.searchBeers = ""
+    });
+
+    eventBus.$on('beer-ingredients', (beerIngredients) => {
+      this.beerIngredients = beerIngredients;
+      this.selectedBeer = null;
     });
 
     eventBus.$on('add-to-favs', beer => this.addtoFavs(beer));
