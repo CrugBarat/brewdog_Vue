@@ -3,7 +3,8 @@
     <h1>Beers</h1>
     <beer-list :beers="beers" v-model="selectedBeer"></beer-list>
     <beer-details v-if="selectedBeer" :beer="selectedBeer"></beer-details>
-
+    <button v-if="!favBeers.includes(selectedBeer)" v-on:click="addtoFavs">Add to Fav</button>
+    <fav-beers :favBeers="favBeers"></fav-beers>
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 
 import BeerList from './components/BeerList.vue';
 import BeerDetails from './components/BeerDetails.vue';
+import FavBeers from './components/FavBeers.vue';
 
 import {eventBus} from './main.js'
 
@@ -20,7 +22,8 @@ export default {
   data () {
     return {
       beers: [],
-      selectedBeer: null
+      selectedBeer: null,
+      favBeers: []
     }
   },
   mounted() {
@@ -35,7 +38,13 @@ export default {
   },
   components: {
     "beer-list": BeerList,
-    "beer-details": BeerDetails
+    "beer-details": BeerDetails,
+    "fav-beers": FavBeers
+  },
+  methods: {
+    addtoFavs() {
+      this.favBeers.push(this.selectedBeer)
+    }
   }
 }
 </script>

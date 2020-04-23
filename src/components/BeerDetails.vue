@@ -8,9 +8,15 @@
 </template>
 
 <script>
+
 export default {
   name: 'beer-detail',
-  props: ['beer']
+  props: ['beer'],
+  data () {
+    return {
+      favBeers: []
+    }
+  },
 }
 </script>
 
