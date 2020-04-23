@@ -77,10 +77,12 @@ h1 {
 body {
   background-image: url('./assets/background1.png');
   background-position: center;
+  background-attachment: fixed;
   background-size: cover;
-  background-repeat: repeat-y;
   width: 100vw;
-  font-family: 'Veneer';
+  font-family: 'Roboto', monospace;
+  display: block;
+  text-align: center;
 }
 
 @font-face {
