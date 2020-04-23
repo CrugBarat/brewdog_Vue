@@ -2,6 +2,8 @@
   <div>
     <h1>Beers</h1>
     <beer-list :beers="beers" v-model="selectedBeer"></beer-list>
+    <beer-details v-if="selectedBeer" :beer="selectedBeer"></beer-details>
+
   </div>
 </template>
 
@@ -9,6 +11,7 @@
 <script>
 
 import BeerList from './components/BeerList.vue';
+import BeerDetails from './components/BeerDetails.vue';
 
 import {eventBus} from './main.js'
 
@@ -31,7 +34,8 @@ export default {
 
   },
   components: {
-    "beer-list": BeerList
+    "beer-list": BeerList,
+    "beer-details": BeerDetails
   }
 }
 </script>
