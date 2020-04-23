@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <h1>BrewDog</h1>
+    <h1> BrewD<img class="logo" src="./assets/logo.png">g</h1>
     <beer-list :beers="beers" v-model="selectedBeer"></beer-list>
     <beer-details v-if="selectedBeer" :beer="selectedBeer"></beer-details>
     <button v-if="!favBeers.includes(selectedBeer)" v-on:click="addtoFavs">Add to Fav</button>
@@ -57,22 +57,34 @@ export default {
 <style lang="css" scoped>
 
 h1 {
-  font-family: 'Girassol', cursive;
-  font-size: 150px;
+  font-family: 'Veneer';
+  font-size: 170px;
   text-align: center;
   margin: 0;
   padding: 0;
+  color: 	#202020;
+  opacity: 80%;
+}
+
+.logo{
+  height: 130px;
+  padding: 0;
+  margin: 0;
 }
 </style>
 
 <style>
 body {
-  background-image: url('./assets/background.png');
+  background-image: url('./assets/background1.png');
   background-position: center;
   background-size: cover;
   background-repeat: repeat-y;
   width: 100vw;
-  height: 100vh;
-  color: #fff;
+  font-family: 'Veneer';
+}
+
+@font-face {
+  font-family: 'Veneer';
+  src: url('./assets/fonts/VeneerTwo.ttf');
 }
 </style>

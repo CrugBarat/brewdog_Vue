@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="">
   <div v-for="ingredient in beer.ingredients">
-    <p v-for="oneIngredient in ingredient">{{oneIngredient.name}}</p>
-    <p>{{beer.ingredients.yeast}}</p>
+    <span v-for="oneIngredient in ingredient">{{oneIngredient.name}} </span>
+    <span>{{beer.ingredients.yeast}}</span>
   </div>
   </div>
 </template>
