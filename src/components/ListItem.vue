@@ -1,5 +1,5 @@
 <template lang="html">
-  <div v-on:click="handleClick" class="beer-list-container">
+  <div  class="beer-list-container">
     <div class="beer-img">
       <img class="beer-logo" :src="beer.image_url" alt="">
     </div>
@@ -7,6 +7,7 @@
       <p>{{beer.name}}</p>
       <p class="abv">ABV {{beer.abv}}%</p>
     </div>
+    <button v-on:click="handleClick">More Info</button>
     <button v-on:click="addtoFavs">Add to Fav</button>
     <button v-on:click="removeFav">Remove Fav</button>
   </div>
