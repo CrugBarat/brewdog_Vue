@@ -4,10 +4,13 @@
     <p>{{beer.name}}</p>
     <p>{{beer.description}}</p>
     <p>{{beer.abv}}</p>
+    <beer-ingredients :beer="beer"></beer-ingredients>
   </div>
 </template>
 
 <script>
+
+import BeerIngredients from './BeerIngredients.vue';
 
 export default {
   name: 'beer-detail',
@@ -17,6 +20,9 @@ export default {
       favBeers: []
     }
   },
+  components: {
+    "beer-ingredients": BeerIngredients
+  }
 }
 </script>
 

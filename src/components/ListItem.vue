@@ -17,4 +17,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+li {
+  list-style-type: none;
+  font-size: 20px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 </style>

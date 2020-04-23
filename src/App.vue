@@ -1,9 +1,10 @@
 <template lang="html">
   <div>
-    <h1>Beers</h1>
+    <h1>BrewDog</h1>
     <beer-list :beers="beers" v-model="selectedBeer"></beer-list>
     <beer-details v-if="selectedBeer" :beer="selectedBeer"></beer-details>
     <button v-if="!favBeers.includes(selectedBeer)" v-on:click="addtoFavs">Add to Fav</button>
+    <button v-if="favBeers.includes(selectedBeer)" v-on:click="removeFav">Remove Fav</button>
     <fav-beers :favBeers="favBeers"></fav-beers>
   </div>
 </template>
@@ -27,7 +28,7 @@ export default {
     }
   },
   mounted() {
-    fetch('https://api.punkapi.com/v2/beers')
+    fetch('https://api.punkapi.com/v2/beers?page=1&per_page=80')
     .then(res => res.json())
     .then(beers => this.beers = beers)
 
@@ -44,6 +45,9 @@ export default {
   methods: {
     addtoFavs() {
       this.favBeers.push(this.selectedBeer)
+    },
+    removeFav() {
+      this.favBeers.pop(this.selectedBeer)
     }
   }
 }
@@ -51,4 +55,24 @@ export default {
 
 
 <style lang="css" scoped>
+
+h1 {
+  font-family: 'Girassol', cursive;
+  font-size: 150px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+</style>
+
+<style>
+body {
+  background-image: url('./assets/background.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+}
 </style>
