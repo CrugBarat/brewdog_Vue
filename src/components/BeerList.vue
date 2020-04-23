@@ -2,7 +2,7 @@
   <div>
     <div class="search-container">
       <div class="search">
-        <input type="text" placeholder="Search" v-model="searchBeers">
+        <input type="text" placeholder="Search" v-model="searchBeers" v-on:keyup="handleType">
       </div>
     </div>
     <div class="grid-list-container">
@@ -19,15 +19,22 @@
 
 import ListItem from './ListItem.vue'
 
-
+import {eventBus} from '../main.js'
 
 export default {
   name: 'beer-list',
   props:['beers'],
   data () {
     return {
-      searchBeers: ""
+      searchBeers: "",
+      selectedBeer: null,
     }
+  },
+  mounted() {
+    eventBus.$on('selected-beer', (beer) => {
+      this.selectedBeer = beer;
+      this.searchBeers = ""
+    });
   },
   computed: {
     filteredBeers(){
@@ -36,22 +43,27 @@ export default {
       });
     }
   },
+  methods: {
+    handleType() {
+      eventBus.$emit('search-beers', this.searchBeers)
+    }
+  },
   components: {
     'list-item': ListItem
-  }
+  },
 }
 
 </script>
 
 <style lang="css" scoped>
 .search-container {
-  border-style: solid;
+  /* border-style: solid; */
   width: 100vw;
 }
 
 .search {
   width: 500px;
-  border-style: solid;
+  /* border-style: solid; */
   display: inline-block;
 }
 
@@ -74,12 +86,12 @@ input:focus {
 }
 
 .grid-list-container {
-  border-style: solid;
+  /* border-style: solid; */
 }
 
 .grid-container {
-  border-style: solid;
-  margin-left: 20px;
+  /* border-style: solid; */
+  margin-left: 40px;
   margin-right: 20px;
 }
 

@@ -34,8 +34,8 @@ export default {
 
     eventBus.$on('selected-beer', (beer) => {
       this.selectedBeer = beer;
+      this.searchBeers = ""
     });
-
   },
   components: {
     "beer-list": BeerList,

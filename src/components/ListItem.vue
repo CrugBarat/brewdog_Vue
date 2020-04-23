@@ -30,7 +30,7 @@ export default {
 <style lang="css" scoped>
 
 .beer-list-container {
-  border-style: solid;
+  /* border-style: solid; */
 }
 
 .beer-list-container:hover {
