@@ -75,6 +75,7 @@ input[type=text] {
   border: solid 2px #202020;
   color: 	#202020;
   background-color: transparent;
+  cursor: url('../assets/beer.png'), auto;
 }
 
 ::placeholder {

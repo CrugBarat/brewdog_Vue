@@ -1,9 +1,9 @@
 <template lang="html">
-  <div class="">
+  <div class="ingredients">
     <span>{{beerIngredients}}</span>
   </div>
-</div>
-</div>
+
+
 </template>
 
 <script>
@@ -14,4 +14,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.ingredients:hover {
+
+}
 </style>

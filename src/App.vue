@@ -4,7 +4,7 @@
     <beer-list :beers="beers" v-model="selectedBeer"></beer-list>
     <beer-details v-if="selectedBeer" :beer="selectedBeer"></beer-details>
     <beer-ingredients v-if="beerIngredients" :beerIngredients="beerIngredients"></beer-ingredients>
-    <fav-beers :favBeers="favBeers"></fav-beers>
+    <fav-beers v-if="favBeers.length" :favBeers="favBeers"></fav-beers>
   </div>
 </template>
 
@@ -25,7 +25,8 @@ export default {
       beers: [],
       selectedBeer: null,
       beerIngredients: null,
-      favBeers: []
+      favBeers: [],
+      searchBeers: ""
     }
   },
   components: {
@@ -60,6 +61,11 @@ export default {
     eventBus.$on('selected-beer', (beer) => {
       this.selectedBeer = beer;
       this.searchBeers = ""
+    });
+
+    eventBus.$on('search-beers', (searchBeers) => {
+      this.searchBeers = searchBeers;
+      this.beerIngredients = null;
     });
 
     eventBus.$on('beer-ingredients', (beerIngredients) => {
@@ -104,6 +110,7 @@ body {
   font-family: 'Roboto', monospace;
   display: block;
   text-align: center;
+  cursor: url('./assets/beer.png'), auto;
 }
 
 @font-face {
