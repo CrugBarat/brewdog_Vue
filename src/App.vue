@@ -40,7 +40,9 @@ export default {
     },
     removeFav(beer) {
       if (this.favBeers.includes(beer)) {
-        this.favBeers.pop(beer)
+        const index = this.favBeers.indexOf(beer)
+        console.log(index);
+        return this.favBeers.splice(index, 1)
     } else {
       alert('This beer is not your favourite!')
     }
