@@ -3,8 +3,6 @@
     <h1> BrewD<img class="logo" src="./assets/logo.png">g</h1>
     <beer-list :beers="beers" v-model="selectedBeer"></beer-list>
     <beer-details v-if="selectedBeer" :beer="selectedBeer"></beer-details>
-    <button v-if="!favBeers.includes(selectedBeer)" v-on:click="addtoFavs">Add to Fav</button>
-    <button v-if="favBeers.includes(selectedBeer)" v-on:click="removeFav">Remove Fav</button>
     <fav-beers :favBeers="favBeers"></fav-beers>
   </div>
 </template>
@@ -27,6 +25,27 @@ export default {
       favBeers: []
     }
   },
+  components: {
+    "beer-list": BeerList,
+    "beer-details": BeerDetails,
+    "fav-beers": FavBeers
+  },
+  methods: {
+    addtoFavs(beer) {
+      if (!this.favBeers.includes(beer)) {
+          this.favBeers.push(beer)
+      } else {
+        alert('Beer already added! Try another')
+      }
+    },
+    removeFav(beer) {
+      if (this.favBeers.includes(beer)) {
+        this.favBeers.pop(beer)
+    } else {
+      alert('This beer is not your favourite!')
+    }
+  }
+},
   mounted() {
     fetch('https://api.punkapi.com/v2/beers?page=1&per_page=80')
     .then(res => res.json())
@@ -36,19 +55,10 @@ export default {
       this.selectedBeer = beer;
       this.searchBeers = ""
     });
-  },
-  components: {
-    "beer-list": BeerList,
-    "beer-details": BeerDetails,
-    "fav-beers": FavBeers
-  },
-  methods: {
-    addtoFavs() {
-      this.favBeers.push(this.selectedBeer)
-    },
-    removeFav() {
-      this.favBeers.pop(this.selectedBeer)
-    }
+
+    eventBus.$on('add-to-favs', beer => this.addtoFavs(beer));
+
+    eventBus.$on('remove-from-favs', beer => this.removeFav(beer));
   }
 }
 </script>

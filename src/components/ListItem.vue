@@ -1,27 +1,47 @@
 <template lang="html">
   <div v-on:click="handleClick" class="beer-list-container">
-      <div class="beer-img">
-        <img class="beer-logo" :src="beer.image_url" alt="">
-      </div>
-      <div class="beer-name">
-        <p>{{beer.name}}</p>
-        <p class="abv">ABV {{beer.abv}}%</p>
-      </div>
+    <div class="beer-img">
+      <img class="beer-logo" :src="beer.image_url" alt="">
+    </div>
+    <div class="beer-name">
+      <p>{{beer.name}}</p>
+      <p class="abv">ABV {{beer.abv}}%</p>
+    </div>
+    <button v-on:click="addtoFavs">Add to Fav</button>
+    <button v-on:click="removeFav">Remove Fav</button>
   </div>
 </template>
 
 
 <script>
+import FavBeers from './FavBeers.vue';
 import {eventBus} from '../main.js'
 
 export default {
   name: 'list-item',
+  data () {
+    return {
+      favBeers: [],
+      selectedBeer: null
+    }
+  },
   props: ['beer'],
   methods: {
     handleClick() {
       eventBus.$emit('selected-beer', this.beer)
+    },
+    addtoFavs() {
+      eventBus.$emit('add-to-favs', this.beer)
+    },
+    removeFav() {
+      eventBus.$emit('remove-from-favs', this.beer)
     }
-  }
+  },
+  mounted() {
+    eventBus.$on('selected-beer', (beer) => {
+      this.selectedBeer = beer;
+    });
+  },
 }
 </script>
 

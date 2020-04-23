@@ -15,11 +15,6 @@ import BeerIngredients from './BeerIngredients.vue';
 export default {
   name: 'beer-detail',
   props: ['beer'],
-  data () {
-    return {
-      favBeers: []
-    }
-  },
   components: {
     "beer-ingredients": BeerIngredients
   }
