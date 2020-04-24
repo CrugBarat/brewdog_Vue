@@ -42,6 +42,7 @@ export default {
 
 .beer-list-container:hover {
   background-color: #89cff0;
+  border-radius: 10%;
 }
 
 .beer-img {

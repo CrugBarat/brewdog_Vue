@@ -7,7 +7,7 @@
       <p class="description">{{beer.description}}</p>
       <input class="ingredients" type="image" :src="ingredients" v-on:click="handleClick">
       <input class="add" type="image" :src="add" v-on:click="addtoFavs">
-      <input class="remove" type="image" :src="remove" v-on:click="handleClick">
+      <input class="remove" type="image" :src="remove" v-on:click="removeFav">
     </div>
   </div>
 </template>
