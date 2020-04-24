@@ -24,7 +24,6 @@ export default {
   props: ['beer'],
   data () {
     return {
-      favBeers: [],
       add: add,
       remove: remove,
       ingredients: ingredients,
@@ -111,6 +110,5 @@ P {
 input:focus{
   outline: none;
 }
-
 
 </style>

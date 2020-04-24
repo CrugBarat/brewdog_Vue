@@ -17,12 +17,6 @@ import {eventBus} from '../main.js'
 
 export default {
   name: 'list-item',
-  data () {
-    return {
-      favBeers: [],
-      selectedBeer: null
-    }
-  },
   props: ['beer'],
   methods: {
     handleClick() {

@@ -40,7 +40,7 @@ export default {
       if (!this.favBeers.includes(beer)) {
           this.favBeers.push(beer)
       } else {
-        alert('Beer already added! Try another')
+        alert('Beer already added! Try another!')
       }
     },
     removeFav(beer) {
@@ -48,9 +48,9 @@ export default {
         const index = this.favBeers.indexOf(beer)
         return this.favBeers.splice(index, 1)
     } else {
-      alert('This beer is not your favourite!')
+      alert('This beer is not one of your favourites!')
     }
-  }
+  },
 },
   mounted() {
     fetch('https://api.punkapi.com/v2/beers?page=1&per_page=80')
