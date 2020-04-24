@@ -5,9 +5,19 @@
       <p class="name">{{beer.name}}</p>
       <p class="abv">ABV {{beer.abv}}%</p>
       <p class="description">{{beer.description}}</p>
-      <input class="ingredients" type="image" :src="ingredients" v-on:click="handleClick">
-      <input class="add" type="image" :src="add" v-on:click="addtoFavs">
-      <input class="remove" type="image" :src="remove" v-on:click="removeFav">
+      <div class="buttons-container">
+      <div class="buttons">
+        <div class="ingreds-butn">
+          <input class="ingredients" type="image" :src="ingredients" v-on:click="handleClick">
+        </div>
+        <div class="add-butn">
+          <input class="add" type="image" :src="add" v-on:click="addtoFavs">
+        </div>
+        <div class="remove-butn">
+          <input class="remove" type="image" :src="remove" v-on:click="removeFav">
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -39,8 +49,8 @@ export default {
     handleClick() {
       eventBus.$emit('beer-ingredients', this.beer.ingredients)
     }
-    },
-  }
+  },
+}
 </script>
 
 <style lang="css" scoped>
@@ -58,6 +68,7 @@ export default {
 
 img {
   height: 150px;
+  padding-bottom: 10px;
 }
 
 P {
@@ -79,6 +90,7 @@ P {
   font-family: 'Roboto';
   font-size: 20px;
   padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .ingredients {
@@ -106,9 +118,34 @@ P {
   background-color: #89cff0;
 }
 
-
 input:focus{
   outline: none;
+}
+
+.buttons-container {
+  text-align: center;
+  display: block;
+}
+
+.buttons {
+  display: inline-block;
+  width: 300px;
+  padding-top: 10px;
+}
+
+.ingreds-butn {
+  width:30%;
+  float: left;
+}
+
+.add-butn {
+  width:30%;
+  float: left;
+}
+
+.remove-butn {
+  width:30%;
+  float: left;
 }
 
 </style>

@@ -47,7 +47,7 @@ export default {
 .fav-beers {
   font-family: 'Veneer';
   font-size: 50px;
-  padding-top: 40px;
+  padding-top: 80px;
 }
 
 .grid-list-container {
@@ -59,7 +59,6 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 40px;
   text-align: center;
 }
 
