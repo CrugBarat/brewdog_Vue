@@ -1,5 +1,11 @@
 <template lang="html">
   <div class="ingredients">
+    <div class="beer-name">
+    <p class="heading">{{this.beerIngredients.name}}</p>
+    </div>
+    <div class="beer-abv">
+    <p class="heading">ABV {{this.beerIngredients.abv}}%</p>
+    </div>
     <div class="grid-list-container">
       <div class="grid-container">
         <div class="grid">
@@ -16,7 +22,7 @@
     </div>
   </template>
 
-  <script>
+<script>
   import ingredients from '../assets/ingredients.png';
 
   export default {
@@ -30,13 +36,13 @@
     computed: {
       ingredients() {
         const ingredientData = {};
-        for (let ingredientKey in this.beerIngredients) {
-          if (typeof this.beerIngredients[ingredientKey] === "string") {
+        for (let ingredientKey in this.beerIngredients.ingredients) {
+          if (typeof this.beerIngredients.ingredients[ingredientKey] === "string") {
             ingredientData[ingredientKey] = [
-              this.beerIngredients[ingredientKey]
+              this.beerIngredients.ingredients[ingredientKey]
             ];
           } else {
-            let ingredientsList = this.beerIngredients[ingredientKey]
+            let ingredientsList = this.beerIngredients.ingredients[ingredientKey]
             .map(ingredient => ingredient.name)
             .filter((ingredientName, index, array) =>
             array.indexOf(ingredientName) === index);
@@ -47,10 +53,10 @@
       }
     },
   }
-  </script>
+</script>
 
 
-  <style lang="css" scoped>
+<style lang="css" scoped>
 
   .grid-list-container {
     margin-left: 40px;
@@ -98,6 +104,23 @@
 
   .img-ingredients {
     height: 50px;
+  }
+
+  .beer-name {
+    font-family: 'Veneer';
+    font-size: 50px;
+    width: 100vw;
+  }
+
+  .beer-abv {
+    font-family: 'Veneer';
+    font-size: 30px;
+    width: 100vw;
+  }
+
+  p.heading {
+    padding: 0;
+    margin: 0;
   }
 
   </style>

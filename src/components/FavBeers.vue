@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
-    <p class="fav-beers">Favourite Beers</p>
     <div class="grid-list-container">
+      <p class="fav-beers">Favourite Beers</p>
       <div class="grid-container">
         <div class="grid">
           <div v-for="beer in favBeers" v-model="favBeer=beer">
@@ -47,12 +47,14 @@ export default {
 .fav-beers {
   font-family: 'Veneer';
   font-size: 50px;
-  padding-top: 80px;
 }
 
 .grid-list-container {
   margin-left: 40px;
   margin-right: 20px;
+  padding-top: 40px;
+  margin: 40px;
+  border: dashed 2px #202020;
 }
 
 .grid {

@@ -47,7 +47,7 @@ export default {
       eventBus.$emit('remove-from-favs', this.beer)
     },
     handleClick() {
-      eventBus.$emit('beer-ingredients', this.beer.ingredients)
+      eventBus.$emit('beer-ingredients', this.beer)
     }
   },
 }

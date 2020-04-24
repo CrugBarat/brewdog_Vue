@@ -67,12 +67,14 @@ export default {
       this.beerIngredients = null;
     });
 
-    eventBus.$on('beer-ingredients', (beerIngredients) => {
-      this.beerIngredients = beerIngredients;
+    eventBus.$on('beer-ingredients', (beer) => {
+      this.beerIngredients = beer;
       this.selectedBeer = null;
     });
 
-    eventBus.$on('add-to-favs', beer => this.addtoFavs(beer));
+    eventBus.$on('add-to-favs', (beer) => {
+      this.addtoFavs(beer);
+    });
 
     eventBus.$on('remove-from-favs', beer => this.removeFav(beer));
   }
