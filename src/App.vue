@@ -112,6 +112,7 @@ body {
   display: block;
   text-align: center;
   cursor: url('./assets/beer.png'), auto;
+  user-select: none;
 }
 
 @font-face {
