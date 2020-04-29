@@ -1,9 +1,9 @@
-<img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew1.png" width="300"> <img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew2.png" width="300"> <img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew3.png" width="300"> <img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew4.png" width="300"> <img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew5.png" width="300"> 
+<img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew1.png" width="300"> <img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew2.png" width="300"> <img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew3.png" width="300"> <img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew4.png" width="300"> <img src="https://github.com/CrugBarat/my_files/blob/master/brewdog/brew5.png" width="300">
 
 
 # BrewDog
 
-A basic BrewDog search app, which uses an API as a data source:
+A basic BrewDog search app, which uses a HTTP RESTful API as a data source:
 
 **Programming Language**: JavaScript
 
@@ -49,7 +49,7 @@ Your app should be able to:
 npm install
 ```
 
-- Compile for development
+- Compile
 
 ```
 npm run serve
